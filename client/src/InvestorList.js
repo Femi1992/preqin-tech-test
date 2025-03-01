@@ -39,6 +39,7 @@ function InvestorsList() {
                 <td>{investor.investor_type}</td>
                 <td>{investor.date_added}</td>
                 <td>{investor.investor_country}</td>
+                {/* need to add commitment */}
                 <td></td>
               </tr>
             ))}
