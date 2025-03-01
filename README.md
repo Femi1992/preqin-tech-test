@@ -21,9 +21,9 @@ When I click on an Asset Class
 I want to see relevant commitments.
 ```
 
-Sample data is provided in `data.csv`. 
+Sample data is provided in `data.csv`.
 
-How you visualise the data is up to you, but we include some wireframes just in case you want some guidance: 
+How you visualise the data is up to you, but we include some wireframes just in case you want some guidance:
 ![Investors Listing](./wireframe-investors.png) ![Commitments Breakdown](./wireframe-investor-commitments.png)
 
 Note: Assume a sole currency of GBP, and ignore any authentication needs.
@@ -48,3 +48,10 @@ Please submit your solution by sharing a public github or bitbucket with your co
 We ask you do not fork or PR against the Preqin repository.
 
 Thank you and good luck!
+
+
+## Notes for me
+
+Set up db - python database.py from flask-server directory
+Start python server with python3 server.py from flask server directory
+Start react server with npm start from client directory

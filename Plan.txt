@@ -1,0 +1,15 @@
+Populate Database
+set up request to Database to serve all investors done
+i need to get all commitments - round to what billion it is
+
+set up request to get investor commitments
+set up requests for separating investor commitments into asset classes
+
+
+ =================
+UI touchups
+change colour schemes
+
+use react router instead of link - replace link tag with p tag 
+include style attr in p tag to have hover effect (cursor pointer hover) 
+p tag unclick should use react router to navigate to detail page
