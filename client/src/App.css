@@ -68,15 +68,33 @@
 .investors-table th, .commitments-table th {
   padding-top: 12px;
   padding-bottom: 12px;
-  background-color: #4CAF50;
+  background-color: #00008B;
   color: white;
 }
 
 .investors-table td a {
-  color: #4CAF50;
+  color: #00008B;
   text-decoration: none;
 }
 
 .investors-table td a:hover {
   text-decoration: underline;
+}
+
+.asset-class-buttons {
+  margin-bottom: 20px;
+}
+
+.asset-class-buttons button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #00008B;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.asset-class-buttons button:hover {
+  background-color: #45a049;
 }

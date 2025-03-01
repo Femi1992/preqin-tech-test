@@ -14,9 +14,18 @@ def investors():
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM investors')
     investors = cursor.fetchall()
-    conn.close()
 
-    investors_list = [dict(ix) for ix in investors]
+    investors_list = []
+    for investor in investors:
+        investor_dict = dict(investor)
+        cursor.execute('SELECT * FROM commitments WHERE investor_id = ?', (investor['id'],))
+        commitments = cursor.fetchall()
+        total_commitment = sum([commitment['commitment_amount'] for commitment in commitments])
+        rounded_total_commitment = round(total_commitment / 1_000_000_000, 1)
+        investor_dict['total_commitment_billion'] = rounded_total_commitment
+        investors_list.append(investor_dict)
+
+    conn.close()
     return jsonify(investors_list)
 
 @app.route('/investor/<int:id>')
@@ -37,6 +46,7 @@ def investor(id):
     commitments_list = []
     for investor_commitment in commitments:
         commitments_list.append(dict(investor_commitment))
+
     return jsonify({'investor': investor_dict, 'commitments': commitments_list})
 
 if __name__ == '__main__':

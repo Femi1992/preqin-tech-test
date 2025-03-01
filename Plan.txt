@@ -13,3 +13,10 @@ change colour schemes
 use react router instead of link - replace link tag with p tag 
 include style attr in p tag to have hover effect (cursor pointer hover) 
 p tag unclick should use react router to navigate to detail page
+
+
+
+What I would do different
+Use make commands for settings up the project
+Use model classes for all of the business logic in fetching investors
+and their commitments
