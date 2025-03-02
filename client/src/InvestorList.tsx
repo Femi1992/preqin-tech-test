@@ -2,8 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 
+interface Investor {
+  id: number;
+  investor_name: string;
+  investor_type: string;
+  investor_country: string;
+  date_added: string;
+  investor_last_updated: string;
+  total_commitment_billion: number;
+}
+
 function InvestorsList() {
-  const [investors, setInvestors] = useState([]);
+  const [investors, setInvestors] = useState<Investor[]>([]);
 
   useEffect(() => {
     fetch("/investors").then(

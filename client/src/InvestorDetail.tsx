@@ -2,12 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './App.css';
 
+interface Commitment {
+  commitment_asset_class: string;
+  commitment_amount: number;
+  commitment_currency: string;
+}
+
+interface Investor {
+  investor_name: string;
+  investor_type: string;
+  investor_country: string;
+  date_added: string;
+  investor_last_updated: string;
+}
+
 function InvestorDetails() {
-  const { id } = useParams();
-  const [investor, setInvestor] = useState(null);
-  const [commitments, setCommitments] = useState([]);
-  const [filteredCommitments, setFilteredCommitments] = useState([]);
-  const [assetClasses, setAssetClasses] = useState([]);
+  const { id } = useParams<{ id: string }>();
+  const [investor, setInvestor] = useState<Investor | null>(null);
+  const [commitments, setCommitments] = useState<Commitment[]>([]);
+  const [filteredCommitments, setFilteredCommitments] = useState<Commitment[]>([]);
+  const [assetClasses, setAssetClasses] = useState<string[]>([]);
 
   useEffect(() => {
     fetch(`/investor/${id}`).then(
@@ -17,13 +31,13 @@ function InvestorDetails() {
         setInvestor(data.investor);
         setCommitments(data.commitments);
         setFilteredCommitments(data.commitments);
-        const uniqueAssetClasses = [...new Set(data.commitments.map(c => c.commitment_asset_class))];
+        const uniqueAssetClasses = [...new Set(data.commitments.map((c: Commitment) => c.commitment_asset_class))];
         setAssetClasses(uniqueAssetClasses);
       }
     )
   }, [id]);
 
-  const filterByAssetClass = (assetClass) => {
+  const filterByAssetClass = (assetClass: string) => {
     if (assetClass === "All Commitments") {
       setFilteredCommitments(commitments);
     } else {

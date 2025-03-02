@@ -9,13 +9,19 @@ p tag unclick should use react router to navigate to detail page
 ====================================
 ## What I would do different
 
-Set up postgres db on rds, use appsync and graphql to manage queries - explain why
-potnetially makes point below void, potatoe pitatoe
+Set up rds instance of a db probably postgres, use appsync and graphql to manage queries - this way
+all queries are handled through simple graphql queries, no need for tricky python code
+all sql can be written in the form of vtl files which consist of sql statements
 
+Reason for postgres db
+ability to easily handle complex queries, transactions, 
+and extensive data warehousing operations makes it perfect 
+for applications requiring detailed analytics, real-time processing, 
+and high data integrity
+
+Another option
 Use model classes for all of the business logic in fetching investors
 and their commitments - explain why this is needed
-
-Use an ORM like sqlachemy for database interactions - explain why this would be beneficial
-also explain whats wrong with mvp as it stands
+Use an ORM like sqlachemy for database interactions 
 
 Use typescript?
