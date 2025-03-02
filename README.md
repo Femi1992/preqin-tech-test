@@ -50,10 +50,14 @@ We ask you do not fork or PR against the Preqin repository.
 Thank you and good luck!
 
 
-## Setup instructions
+## Setup instructions - run from the root of the project
 
-Set up db - python database.py from flask-server directory
+Set up db - make setup-db
 
-Start python server with python3 server.py from flask server directory
+Install requirements - make install-requirements
 
-Start react server with npm start from client directory
+Start development environment - make start-all
+
+## Run unit tests - run from the root of the project
+
+make test
