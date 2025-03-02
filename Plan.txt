@@ -9,9 +9,13 @@ p tag unclick should use react router to navigate to detail page
 ====================================
 ## What I would do different
 
-Use model classes for all of the business logic in fetching investors
-and their commitments
+Set up postgres db on rds, use appsync and graphql to manage queries - explain why
+potnetially makes point below void, potatoe pitatoe
 
-Use an ORM like sqlachemy for database interactions
+Use model classes for all of the business logic in fetching investors
+and their commitments - explain why this is needed
+
+Use an ORM like sqlachemy for database interactions - explain why this would be beneficial
+also explain whats wrong with mvp as it stands
 
 Use typescript?
