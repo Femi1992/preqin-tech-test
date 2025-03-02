@@ -40,7 +40,6 @@ function InvestorsList() {
                 <td>{investor.date_added}</td>
                 <td>{investor.investor_country}</td>
                 <td>{investor.total_commitment_billion}B</td>
-                <td></td>
               </tr>
             ))}
           </tbody>

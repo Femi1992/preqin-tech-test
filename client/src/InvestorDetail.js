@@ -56,16 +56,16 @@ function InvestorDetails() {
             <thead>
               <tr>
                 <th>Asset Class</th>
-                <th>Amount</th>
                 <th>Currency</th>
+                <th>Amount</th>
               </tr>
             </thead>
             <tbody>
               {filteredCommitments.map((commitment, i) => (
                 <tr key={i}>
                   <td>{commitment.commitment_asset_class}</td>
-                  <td>{commitment.commitment_amount}</td>
                   <td>{commitment.commitment_currency}</td>
+                  <td>{(commitment.commitment_amount / 1_000_000).toFixed(1)}M</td>
                 </tr>
               ))}
             </tbody>
