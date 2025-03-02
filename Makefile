@@ -5,7 +5,7 @@ NPM := npm
 FLASK_SERVER_DIR := flask-server
 CLIENT_DIR := client
 
-.PHONY: setup-db start-flask start-react start-all install-requirements test
+.PHONY: setup-db start-flask start-react dev install-requirements test
 
 setup-db:
 	cd $(FLASK_SERVER_DIR) && $(PYTHON) database.py
@@ -22,5 +22,5 @@ start-react:
 start-flask:
 	cd $(FLASK_SERVER_DIR) && $(PYTHON) server.py
 
-start-all:
+dev:
 	make start-flask & make start-react

@@ -13,6 +13,11 @@ Set up rds instance of a db probably postgres, use appsync and graphql to manage
 all queries are handled through simple graphql queries, no need for tricky python code
 all sql can be written in the form of vtl files which consist of sql statements
 
+
+
+Also reduce the chance of sql injections, because currently someone could write 
+malicious code to drop all data from tables 
+
 Reason for postgres db
 ability to easily handle complex queries, transactions, 
 and extensive data warehousing operations makes it perfect 
@@ -24,4 +29,4 @@ Use model classes for all of the business logic in fetching investors
 and their commitments - explain why this is needed
 Use an ORM like sqlachemy for database interactions 
 
-Use typescript?
+

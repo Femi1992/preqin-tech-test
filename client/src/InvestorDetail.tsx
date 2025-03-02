@@ -22,6 +22,7 @@ function InvestorDetails() {
   const [commitments, setCommitments] = useState<Commitment[]>([]);
   const [filteredCommitments, setFilteredCommitments] = useState<Commitment[]>([]);
   const [assetClasses, setAssetClasses] = useState<string[]>([]);
+  const [selectedAssetClass, setSelectedAssetClass] = useState<string>("All Commitments");
 
   useEffect(() => {
     fetch(`/investor/${id}`).then(
@@ -32,12 +33,13 @@ function InvestorDetails() {
         setCommitments(data.commitments);
         setFilteredCommitments(data.commitments);
         const uniqueAssetClasses = [...new Set(data.commitments.map((c: Commitment) => c.commitment_asset_class))];
-        setAssetClasses(uniqueAssetClasses);
+        setAssetClasses(uniqueAssetClasses as any);
       }
     )
   }, [id]);
 
   const filterByAssetClass = (assetClass: string) => {
+    setSelectedAssetClass(assetClass);
     if (assetClass === "All Commitments") {
       setFilteredCommitments(commitments);
     } else {
@@ -57,11 +59,18 @@ function InvestorDetails() {
           <p>Last Updated: {investor.investor_last_updated}</p>
           <h3>Commitments</h3>
           <div className="asset-class-buttons">
-            <button onClick={() => filterByAssetClass("All Commitments")}>
+            <button
+              className={selectedAssetClass === "All Commitments" ? "active" : ""}
+              onClick={() => filterByAssetClass("All Commitments")}
+            >
               All Commitments
             </button>
             {assetClasses.map((assetClass, i) => (
-              <button key={i} onClick={() => filterByAssetClass(assetClass)}>
+              <button
+                key={i}
+                className={selectedAssetClass === assetClass ? "active" : ""}
+                onClick={() => filterByAssetClass(assetClass)}
+              >
                 {assetClass}
               </button>
             ))}
